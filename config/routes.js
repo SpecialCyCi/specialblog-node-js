@@ -5,7 +5,7 @@ module.exports = function(app){
   app.get('/', home.index);
 
   // article routes
-  var article = require('../app/controllers/article');
+  var article = require('../app/controllers/api/articles');
   app.post('/api/article', article.create);
 
   // page not found
