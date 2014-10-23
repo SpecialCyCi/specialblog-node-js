@@ -3,12 +3,16 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "app.js"
+    "start": "app.js",
+    "test": "mocha"
   },
   "dependencies": {
     "express": "~3.4.8",
     "mongoose": "~3.8.6",
-    "jade": "~1.1.5"
+    "jade": "~1.1.5",
+    "supertest" : "0.14.0",
+    "mocha" : "2.0.0",
+    "should" : "4.1.0"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
