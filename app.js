@@ -1,5 +1,6 @@
 var express = require('express'),
   mongoose = require('mongoose'),
+  errorHandler = require('errorhandler'),
   fs = require('fs'),
   config = require('./config/config');
 
@@ -21,6 +22,11 @@ module.exports = app;
 
 require('./config/express')(app, config);
 require('./config/routes')(app);
+
+// error handling middleware should be loaded after the loading the routes
+if ('development' == app.get('env')) {
+  app.use(errorHandler());
+};
 
 app.listen(config.port);
 console.log('app is running on port '+ config.port)

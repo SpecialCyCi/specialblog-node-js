@@ -1,20 +1,19 @@
-var express = require('express');
+var express = require('express'),
+    morgan = require('morgan'),
+    bodyParser = require('body-parser'),
+    methodOverride = require('method-override'),
+    favicon = require('serve-favicon'),
+    multer = require('multer');
 
 module.exports = function(app, config) {
-  app.configure(function () {
-    app.use(express.compress());
-    app.use(express.static(config.root + '/public'));
-    app.set('port', config.port);
-    app.set('views', config.root + '/app/views');
-    
-    app.set('view engine', 'jade');
-    app.use(express.favicon(config.root + '/public/img/favicon.ico'));
-    app.use(express.logger('dev'));
-    app.use(express.bodyParser());
-    app.use(express.methodOverride());
-    app.use(app.router);
-    app.use(function (req, res) {
-      res.status(404).render('404', { title: '404' });
-    });
-  });
+  app.set('port', config.port);
+  app.set('views', config.root + '/app/views');
+  app.set('view engine', 'jade');
+  app.use(favicon(config.root + '/public/img/favicon.ico'));
+  app.use(morgan('dev'));
+  app.use(methodOverride());
+  app.use(bodyParser.json());
+  app.use(bodyParser.urlencoded({ extended: true }));
+  app.use(multer());
+  app.use(express.static(config.root + '/public'));
 };
