@@ -4,7 +4,12 @@ var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
 var ArticleSchema = new Schema({
-  title: String,
+  title: { 
+    type: String,
+    trim: true,
+    default: '',
+    required: 'Title cannot be blank.'
+  },
   url: String,
   text: String
 });

@@ -19,7 +19,7 @@ describe('Article API CURD tests', function (argument) {
     done();
   });
 
-  it('should create article successfully', function (done) {
+  it('should create an article successfully', function (done) {
     request(app)
       .post('/api/article')
       .send(article)
@@ -29,5 +29,18 @@ describe('Article API CURD tests', function (argument) {
         done();
       });
   });
+
+  it('should not create an article if no title is provided', function (done) {
+    article.title = '';
+    request(app)
+      .post('/api/article')
+      .send(article)
+      .expect(200, function (errors, res) {
+        should.exist(errors);
+        (res.body.errors.title.message).should.match('Title cannot be blank.');
+        done();
+      });
+  });
+
 
 });
