@@ -6,6 +6,7 @@ module.exports = function(app){
 
   // article routes
   var article = require('../app/controllers/api/articles');
+  app.get('/api/articles', article.index);
   app.post('/api/article', article.create);
 
   // page not found
