@@ -5,11 +5,18 @@ module.exports = function(app){
   app.get('/', home.index);
 
   // article routes
-  var article = require('../app/controllers/api/articles');
-  app.get('/api/articles', article.index);
-  app.post('/api/article', article.create);
+  var articles = require('../app/controllers/api/articles');
+  app.route('/api/articles')
+     .get(articles.index)
+     .post(articles.create);
 
-  // page not found
+  app.route('/api/articles/:articleId')
+     .get(articles.show);
+
+   // Finish by binding the article middleware
+  app.param('articleId', articles.articleByID);
+
+ // page not found
   app.use(function (req, res) {
     res.status(404).render('404', { title: '404' });
   });

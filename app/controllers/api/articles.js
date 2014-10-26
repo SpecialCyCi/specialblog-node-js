@@ -8,6 +8,10 @@ exports.index = function (req, res) {
   });
 };
 
+exports.show = function (req, res) {
+  res.json(req.article);
+}
+
 exports.create = function (req, res) {
   var article = new Article(req.body);
   article.save( function(errors) {
@@ -18,3 +22,15 @@ exports.create = function (req, res) {
     }
   });
 };
+
+// Article middleware
+exports.articleByID = function(req, res, next, id) {
+  Article.findById(id).exec(function(err, article) {
+    if (err) return next(err);
+    if (!article) return next(new Error('Failed to load article' + id));
+    req.article = article;
+    next();
+  });
+};
+
+

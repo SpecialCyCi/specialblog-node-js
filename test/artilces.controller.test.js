@@ -19,9 +19,35 @@ describe('Article API CURD tests', function (argument) {
     done();
   });
 
+  it('should list articles', function (done) {
+    var articlesCount = 10, articlesIndex = 10;
+    while(articlesIndex -- ){
+      var article = new Article({
+        title: articlesIndex + 'Another Article Title',
+      });
+      article.save();
+    }
+    request(app)
+      .get('/api/articles')
+      .expect(200, function (errors, res) {
+        (res.body.length).should.be.equal(articlesCount);
+        done();
+      });
+  });
+
+  it('should show an article successfully', function (done) {
+    article.save();
+    request(app)
+      .get('/api/articles/' + article._id)
+      .expect(200, function (errors, res) {
+        res.body.title.should.match(article.title);
+        done();
+      });
+  });
+
   it('should create an article successfully', function (done) {
     request(app)
-      .post('/api/article')
+      .post('/api/articles')
       .send(article)
       .expect(200, function (errors, res) {
         res.body.title.should.match(article.title);
@@ -33,28 +59,11 @@ describe('Article API CURD tests', function (argument) {
   it('should not create an article if no title is provided', function (done) {
     article.title = '';
     request(app)
-      .post('/api/article')
+      .post('/api/articles')
       .send(article)
       .expect(200, function (errors, res) {
         should.exist(errors);
         (res.body.errors.title.message).should.match('Title cannot be blank.');
-        done();
-      });
-  });
-
-  it('should list articles', function (done) {
-    var articlesCount = 10, articlesIndex = 10;
-    while(articlesIndex -- ){
-      var article = new Article({
-        title: articlesIndex + 'Another Article Title',
-      });
-      article.save();
-    }
-
-    request(app)
-      .get('/api/articles')
-      .expect(200, function (errors, res) {
-        (res.body.length).should.be.equal(articlesCount);
         done();
       });
   });
