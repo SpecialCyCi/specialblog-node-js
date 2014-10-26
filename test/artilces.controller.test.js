@@ -1,5 +1,3 @@
-'use strict';
-
 var utils    = require('./utils')
   , request  = require('supertest')
   , should   = require('should')
@@ -10,8 +8,6 @@ var app = require('../app.js');
 var Article  = mongoose.model('Article');
 
 describe('Article API CURD tests', function (argument) {
-
-  var article = null;
 
   beforeEach(function (done) {
   
@@ -26,10 +22,10 @@ describe('Article API CURD tests', function (argument) {
   it('should list articles', function (done) {
     var articlesCount = 10, articlesIndex = 10;
     while(articlesIndex -- ){
-      var article = new Article({
+      var _article = new Article({
         title: articlesIndex + 'Another Article Title',
       });
-      article.save();
+      _article.save();
     }
     request(app)
       .get('/api/articles')
