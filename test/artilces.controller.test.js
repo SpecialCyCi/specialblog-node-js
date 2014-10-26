@@ -21,10 +21,10 @@ describe('Article API CURD tests', function (argument) {
 
   it('should list articles', function (done) {
     var articlesCount = 10, articlesIndex = 10;
-    while(articlesIndex--){
-      new Article({
-        title: articlesIndex + 'Another Article Title'
-      }).save();
+    for (; articlesIndex > 0; articlesIndex--) {
+        new Article({
+          title: articlesIndex + 'Another Article Title'
+        }).save();
     }
     request(app)
       .get('/api/articles')
