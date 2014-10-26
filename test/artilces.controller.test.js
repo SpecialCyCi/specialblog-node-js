@@ -1,3 +1,5 @@
+'use strict';
+
 var utils    = require('./utils')
   , request  = require('supertest')
   , should   = require('should')
@@ -8,6 +10,8 @@ var app = require('../app.js');
 var Article  = mongoose.model('Article');
 
 describe('Article API CURD tests', function (argument) {
+
+  var article = null;
 
   beforeEach(function (done) {
   
