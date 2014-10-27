@@ -12,6 +12,7 @@ module.exports = function(app){
 
   app.route('/api/articles/:articleId')
      .get(articles.show)
+     .put(articles.update)
      .delete(articles.delete);
 
    // Finish by binding the article middleware

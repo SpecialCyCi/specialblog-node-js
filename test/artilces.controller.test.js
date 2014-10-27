@@ -85,4 +85,17 @@ describe('Article API CURD tests', function (argument) {
       });
   });
 
+  it('should update an article successfully', function (done) {
+    article.save();
+    article.title = 'new title';
+    request(app)
+      .put('/api/articles/' + article._id)
+      .send(article)
+      .expect(200, function (errors, res) {
+        res.body._id.should.equal(article._id.toString());
+        res.body.title.should.equal('new title');
+        done();
+      });
+  });
+
 });

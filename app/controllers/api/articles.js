@@ -1,5 +1,6 @@
 var mongoose = require('mongoose'),
-  Article = mongoose.model('Article');
+        Article = mongoose.model('Article'),
+        _ = require('lodash');
 
 // TODO: with page params.
 exports.index = function (req, res) {
@@ -21,6 +22,18 @@ exports.create = function (req, res) {
       res.json(article);
     }
   });
+};
+
+exports.update = function (req, res) {
+  var article = req.article;
+  article = _.extend(article, req.body);
+  article.save(function (err) {
+    if (err) {
+      res.status(400).json(err);
+    } else {
+      res.json(article);
+    }
+  })
 };
 
 exports.delete = function (req, res) {
