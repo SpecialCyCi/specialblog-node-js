@@ -20,18 +20,25 @@ describe('Article API CURD tests', function (argument) {
   });
 
   it('should list articles', function (done) {
-    var articlesCount = 10, articlesIndex = 10;
-    for (; articlesIndex > 0; articlesIndex--) {
+    var articlesCount = 10, articlesIndex = 10, doneCount = 0;
+    while( articlesIndex-- ) {
       new Article({
-        title: articlesIndex + 'Another Article Title'
-      }).save();
+        title: articlesIndex + ' Another Article Title'
+      }).save(function (error, saved) {
+        if ( error ) throw error;
+        if ( ( ++doneCount ) == articlesCount ) {
+          afterSaveAll();
+        }
+      });
     }
-    request(app)
+    function afterSaveAll(){
+      request(app)
       .get('/api/articles')
       .expect(200, function (errors, res) {
-        (res.body.length).should.be.equal(articlesCount);
+        (res.body.length).should.match(articlesCount);
         done();
       });
+    }
   });
 
   it('should show an article successfully', function (done) {
