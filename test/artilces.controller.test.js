@@ -22,9 +22,9 @@ describe('Article API CURD tests', function (argument) {
   it('should list articles', function (done) {
     var articlesCount = 10, articlesIndex = 10;
     for (; articlesIndex > 0; articlesIndex--) {
-        new Article({
-          title: articlesIndex + 'Another Article Title'
-        }).save();
+      new Article({
+        title: articlesIndex + 'Another Article Title'
+      }).save();
     }
     request(app)
       .get('/api/articles')
@@ -63,6 +63,17 @@ describe('Article API CURD tests', function (argument) {
       .expect(200, function (errors, res) {
         should.exist(errors);
         (res.body.errors.title.message).should.match('Title cannot be blank.');
+        done();
+      });
+  });
+
+  it('should delete an article successfully', function (done) {
+    article.save();
+    request(app)
+      .delete('/api/articles/' + article._id)
+      .expect(200, function (errors, res) {
+        (res.req.method).should.match('DELETE');
+        (res.body.title).should.match(article.title);
         done();
       });
   });

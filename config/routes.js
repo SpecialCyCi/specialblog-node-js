@@ -11,7 +11,8 @@ module.exports = function(app){
      .post(articles.create);
 
   app.route('/api/articles/:articleId')
-     .get(articles.show);
+     .get(articles.show)
+     .delete(articles.delete);
 
    // Finish by binding the article middleware
   app.param('articleId', articles.articleByID);

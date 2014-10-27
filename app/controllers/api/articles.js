@@ -23,6 +23,17 @@ exports.create = function (req, res) {
   });
 };
 
+exports.delete = function (req, res) {
+  var article = req.article;
+  article.remove(function (err) {
+    if (err) {
+      res.status(400).json(err);
+    } else {
+      res.json(article);
+    }
+  });
+};
+
 // Article middleware
 exports.articleByID = function(req, res, next, id) {
   Article.findById(id).exec(function(err, article) {
