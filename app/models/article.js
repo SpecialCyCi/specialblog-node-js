@@ -1,4 +1,3 @@
-// Example model
 
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
@@ -10,8 +9,8 @@ var ArticleSchema = new Schema({
     default: '',
     required: 'Title cannot be blank.'
   },
-  url: String,
-  text: String
+  url:     String,
+  content: String
 });
 
 ArticleSchema.virtual('date')
