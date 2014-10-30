@@ -15,6 +15,10 @@ var CommentSchema = new Schema({
     default: '',
     required: 'Content cannot be blank.'
   },
+  _article : {
+    type: Schema.Types.ObjectId,
+    ref: 'Article'
+  }
 });
 
 CommentSchema.virtual('date')
@@ -22,4 +26,4 @@ CommentSchema.virtual('date')
     return this._id.getTimestamp();
   });
 
-mongoose.model('Comment', ArticleSchema);
+mongoose.model('Comment', CommentSchema);

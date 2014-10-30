@@ -4,7 +4,7 @@ module.exports = function(app){
   var home = require('../app/controllers/home');
   app.get('/', home.index);
 
-  // article routes
+  // articles routes
   var articles = require('../app/controllers/api/articles');
   app.route('/api/articles')
      .get(articles.index)
@@ -14,6 +14,11 @@ module.exports = function(app){
      .get(articles.show)
      .put(articles.update)
      .delete(articles.delete);
+
+  // comments routes
+  var comments = require('../app/controllers/api/comments');
+  app.route('/api/articles/:articleId/comments')
+     .post(comments.create);
 
    // Finish by binding the article middleware
   app.param('articleId', articles.articleByID);

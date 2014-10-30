@@ -12,8 +12,8 @@ describe('Article API CURD tests', function (argument) {
   beforeEach(function (done) {
   
     article = new Article({
-      title: 'How to build a Blog with Node.js?',
-      text:  'You should use some frameworks like Express'
+      title:   'How to build a Blog with Node.js?',
+      content: 'You should use some frameworks like Express'
     });
 
     done();
@@ -57,7 +57,7 @@ describe('Article API CURD tests', function (argument) {
       .send(article)
       .expect(200, function (errors, res) {
         res.body.title.should.match(article.title);
-        res.body.text.should.match(article.text);
+        res.body.content.should.match(article.content);
         done();
       });
   });

@@ -9,8 +9,8 @@ var ArticleSchema = new Schema({
     default: '',
     required: 'Title cannot be blank.'
   },
-  url:     String,
-  content: String
+  content: String,
+  comments: [{ type: Schema.Types.ObjectId, ref: 'Comment' }]
 });
 
 ArticleSchema.virtual('date')
