@@ -37,4 +37,16 @@ describe('Comment API CURD tests', function (argument) {
       });
   });
 
+  it('should not create comment if content is blank.', function (done) {
+    comment.content = '';
+    request(app)
+      .post('/api/articles/' + article._id +  '/comments')
+      .send(comment)
+      .expect(200, function (errors, res) {
+        should.exist(errors);
+        (res.body.errors.content.message).should.match('Content cannot be blank.');
+        done();
+      });
+  });
+
 });
