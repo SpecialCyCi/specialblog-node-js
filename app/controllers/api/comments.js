@@ -14,3 +14,26 @@ exports.create = function (req, res) {
     }
   });
 };
+
+exports.delete = function (req, res) {
+  var comment = req.comment;
+  comment.remove(function (err) {
+    if (err) {
+      res.status(400).json(err);
+    } else {
+      res.json(comment);
+    }
+  });
+}
+
+// Comment middleware
+exports.commentByID = function(req, res, next, id) {
+  Comment.findById(id).exec(function(err, comment) {
+    if (err) return next(err);
+    if (!comment) return next(new Error('Failed to load comment' + id));
+    req.comment = comment;
+    next();
+  });
+};
+
+

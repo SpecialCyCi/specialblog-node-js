@@ -20,8 +20,14 @@ module.exports = function(app){
   app.route('/api/articles/:articleId/comments')
      .post(comments.create);
 
+  app.route('/api/comments/:commentId')
+     .delete(comments.delete);
+
    // Finish by binding the article middleware
   app.param('articleId', articles.articleByID);
+
+  // Finish by binding the comment middleware
+  app.param('commentId', comments.commentByID);
 
  // page not found
   app.use(function (req, res) {

@@ -29,7 +29,7 @@ describe('Comment API CURD tests', function (argument) {
     request(app)
       .post('/api/articles/' + article._id +  '/comments')
       .send(comment)
-      .expect(200, function (error, res) {
+      .expect(200, function (errors, res) {
         res.body.email.should.match(comment.email);
         res.body.content.should.match(comment.content);
         res.body._article.should.match(article._id.toString());
@@ -45,6 +45,17 @@ describe('Comment API CURD tests', function (argument) {
       .expect(200, function (errors, res) {
         should.exist(errors);
         (res.body.errors.content.message).should.match('Content cannot be blank.');
+        done();
+      });
+  });
+
+  it('should delete comment successfully', function (done) {
+    comment.save();
+    request(app)
+      .delete('/api/comments/' + comment._id)
+      .expect(200, function (errors, res) {
+        res.body.email.should.match(comment.email);
+        res.body.content.should.match(comment.content);
         done();
       });
   });
