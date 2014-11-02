@@ -24,7 +24,20 @@ exports.delete = function (req, res) {
       res.json(comment);
     }
   });
-}
+};
+
+exports.update = function (req, res) {
+  var comment = req.comment;
+  comment = _.extend(comment, req.body);
+  comment.save(function (err) {
+    if (err) {
+      res.status(400).json(err);
+    } else {
+      res.json(comment);
+    }
+  })
+};
+
 
 // Comment middleware
 exports.commentByID = function(req, res, next, id) {

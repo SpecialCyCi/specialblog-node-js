@@ -21,6 +21,7 @@ module.exports = function(app){
      .post(comments.create);
 
   app.route('/api/comments/:commentId')
+     .put(comments.update)
      .delete(comments.delete);
 
    // Finish by binding the article middleware

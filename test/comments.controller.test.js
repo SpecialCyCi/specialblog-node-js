@@ -60,4 +60,17 @@ describe('Comment API CURD tests', function (argument) {
       });
   });
 
+  it('should update comment successfully', function (done) {
+    comment.save();
+    comment.content = 'Hello, I have updated this article!';
+    request(app)
+      .put('/api/comments/' + comment._id)
+      .send(comment)
+      .expect(200, function (errors, res) {
+        res.body.email.should.match(comment.email);
+        res.body.content.should.match(comment.content);
+        done();
+      });
+  });
+
 });
