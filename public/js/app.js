@@ -1,16 +1,16 @@
-var app = angular.module('specialBlogApp', [
-  'ngResource',
-  'ngRoute'
+angular.module('specialBlogApp', [
+  'ngRoute',
+  'ngResource'
 ])
   .config(function ($routeProvider, $locationProvider) {
       $routeProvider
         .when('/', {
-                templateUrl: 'index.html',
-                controller: 'homeCtrl'
+                templateUrl: 'views/index.html',
+                controller: 'HomeCtrl'
               })
         .when('/articles', {
-                templateUrl: 'articles.html',
-                controller: 'articlesCtrl'
+                templateUrl: 'views/articles.html',
+                controller: 'ArticlesCtrl'
               })
         .otherwise({
                 redirectTo: '/'

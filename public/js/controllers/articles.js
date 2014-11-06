@@ -1,9 +1,9 @@
 'use strict';
 
-app.controller('articlesCtrl', ['$scope', 'Articles', function ($scope) {
+angular.module('specialBlogApp').controller('ArticlesCtrl', function (Articles, $scope) {
 
   $scope.index = function (argument) {
     $scope.articles = Articles.query();
   };
 
-}]);
+});

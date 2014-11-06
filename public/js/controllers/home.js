@@ -1,6 +1,5 @@
-app.controller('homeCtrl', ['$scope', function ($scope) {
+'use strict';
 
-
-	$scope.message = 'Hey';
-
-}]);
+angular.module('specialBlogApp').controller('HomeCtrl', function ($scope) {
+  $scope.message = 'Hey';
+});
