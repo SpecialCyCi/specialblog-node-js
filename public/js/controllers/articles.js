@@ -2,8 +2,9 @@
 
 angular.module('specialBlogApp').controller('ArticlesCtrl', function (Articles, $scope) {
 
-  $scope.index = function (argument) {
-    $scope.articles = Articles.query();
-  };
+  $scope.articles = Articles.query();
 
+  $scope.submitArticle = function (data) {
+    Articles.save(data);
+  };
 });
