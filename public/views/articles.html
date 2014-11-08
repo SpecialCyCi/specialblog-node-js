@@ -2,6 +2,11 @@
   <h2>{{article.title}}</h2>
   <hr/>
 </div>
+
+<div>
+  {{message}}
+</div>
+
 <form ng-submit="submitArticle(article)" accept-charset="utf-8">
   <input type="text"  ng-model="article.title"/>
   <p><input type="submit" value="Continue &rarr;"/></p>
