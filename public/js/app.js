@@ -5,15 +5,15 @@ angular.module('specialBlogApp', [
   .config(function ($routeProvider, $locationProvider) {
       $routeProvider
         .when('/', {
-                templateUrl: 'views/index.html',
+                templateUrl: '/views/index.html',
                 controller: 'HomeCtrl'
               })
         .when('/article/:articleId', {
-                templateUrl: 'views/article.html',
+                templateUrl: '/views/article.html',
                 controller: 'ArticleCtrl'
               })
         .when('/articles', {
-                templateUrl: 'views/articles.html',
+                templateUrl: '/views/articles.html',
                 controller: 'ArticlesCtrl'
               })
         .otherwise({
