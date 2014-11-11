@@ -1,6 +1,7 @@
 <div ng-repeat="article in articles">
   <a ng-href="/#/article/{{article._id}}">
     <h2>{{article.title}}</h2>
+    <a ng-click="deleteArticle()">Delete</a>
   </a>
   <hr/>
 </div>
