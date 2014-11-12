@@ -22,5 +22,17 @@ html(lang='en', ng-app="specialBlogApp")
     script(type="text/javascript", src="/js/controllers/article.js")
     
   body
-    block content
-    div(ng-view)
+    div.container
+      div.masthead
+        h3.muted Special Blog
+        div.navbar
+          div.navbar-inner
+            div.container
+              ui.nav
+                li.active
+                  a(href='/#/articles')
+                li
+                  a(href='/#/about')
+
+
+      div(ng-view)
