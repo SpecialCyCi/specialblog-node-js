@@ -22,17 +22,15 @@ html(lang='en', ng-app="specialBlogApp")
     script(type="text/javascript", src="/js/controllers/article.js")
     
   body
-    div.container
-      div.masthead
-        h3.muted Special Blog
-        div.navbar
-          div.navbar-inner
-            div.container
-              ui.nav
-                li.active
-                  a(href='/#/articles')
-                li
-                  a(href='/#/about')
-
-
-      div(ng-view)
+    div.navbar.navbar-default.navbar-fixed-top(role="navigation")
+      div.container
+        div.navbar-header
+          a.navbar-brand SpecialBlog
+        div.navbar-collapse.collapse
+          ul.nav.navbar-nav
+            li.active
+              a(href="/articles")
+            li
+            li
+        div.navbar-header
+    div(ng-view)
