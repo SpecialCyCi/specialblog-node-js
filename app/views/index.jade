@@ -22,15 +22,17 @@ html(lang='en', ng-app="specialBlogApp")
     script(type="text/javascript", src="/js/controllers/article.js")
     
   body
-    div.navbar.navbar-default.navbar-fixed-top(role="navigation")
+    nav.navbar.navbar-default.navbar-fixed-top(role="navigation")
       div.container
         div.navbar-header
           a.navbar-brand SpecialBlog
-        div.navbar-collapse.collapse
+        div.navbar-collapse.collapse(id="navbar")
           ul.nav.navbar-nav
             li.active
-              a(href="/articles")
+              a(href="/articles") Articles
             li
+              a(href="/articles") Articles
             li
-        div.navbar-header
-    div(ng-view)
+              a(href="/articles") Articles
+    div.container
+      div(ng-view)
