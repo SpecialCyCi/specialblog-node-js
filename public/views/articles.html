@@ -1,9 +1,17 @@
 <div ng-repeat="article in articles">
-  <a ng-href="/#/article/{{article._id}}">
-    <h2>{{article.title}}</h2>
-    <a ng-click="deleteArticle()">Delete</a>
-  </a>
-  <hr/>
+  <div class="media">
+    <a class="media-left" ng-href="">
+      <img src=""/>
+    </a>
+    <div class="media-body">
+      <h4 class="media-heading">
+        <a ng-href="/articles/{{article._id}}">
+        {{article.title}}
+        </a>
+      </h4>
+      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+    </div>
+  </div>
 </div>
 
 <div>
