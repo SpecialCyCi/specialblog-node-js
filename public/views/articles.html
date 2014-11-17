@@ -5,7 +5,7 @@
     </a>
     <div class="media-body">
       <h4 class="media-heading">
-        <a ng-href="/articles/{{article._id}}">
+        <a ng-href="/article/{{article._id}}">
         {{article.title}}
         </a>
       </h4>
@@ -20,5 +20,6 @@
 
 <form ng-submit="submitArticle(article)" accept-charset="utf-8">
   <input type="text"  ng-model="article.title"/>
+  <textarea ng-model="article.content"></textarea>
   <p><input type="submit" value="Continue &rarr;"/></p>
 </form>
