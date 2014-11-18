@@ -1,8 +1,9 @@
 'use strict';
 
-angular.module('specialBlogApp').controller('ArticlesCtrl', function (Articles, $scope) {
+angular.module('specialBlogApp').controller('ArticlesCtrl', function (Articles, $scope, $routeParams) {
 
-  $scope.articles = Articles.query();
+  $scope.page = $routeParams.page == null ? 1 : parseInt( $routeParams.page );
+  $scope.articles = Articles.query({ page: $scope.page });
 
   $scope.submitArticle = function (data) {
     Articles.save(data, function (saved) {

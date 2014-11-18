@@ -2,11 +2,14 @@ var mongoose = require('mongoose'),
         Article = mongoose.model('Article'),
         _ = require('lodash');
 
-// TODO: with page params.
 exports.index = function (req, res) {
-  Article.find().exec(function(err, articles) {
-    res.json(articles);
-  });
+  var perPage = 10, page = Math.max(0, req.param('page'));
+  Article.find()
+         .limit(perPage)
+         .skip(perPage * page)
+         .exec(function(err, articles) {
+            res.json(articles);
+          });
 };
 
 exports.show = function (req, res) {
