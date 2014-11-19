@@ -3,10 +3,10 @@ var mongoose = require('mongoose'),
         _ = require('lodash');
 
 exports.index = function (req, res) {
-  var perPage = 10, page = Math.max(0, req.param('page'));
+  var perPage = 10, page = Math.max(1, req.param('page'));
   Article.find()
          .limit(perPage)
-         .skip(perPage * page)
+         .skip(perPage * ( page - 1 ))
          .exec(function(err, articles) {
             res.json(articles);
           });
