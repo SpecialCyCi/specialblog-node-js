@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="specialBlogApp">
+    
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width"/>
+        <title>Special Blog</title>
+        <link rel="stylesheet" href="/css/style.css"/>
+        <link rel="stylesheet" href="/components/bootstrap/dist/css/bootstrap.css"/>
+        <script src="http://localhost:35729/livereload.js"/></script>
+        <script type="text/javascript" src="/components/jquery/dist/jquery.js"></script>
+        <script type="text/javascript" src="/components/angular/angular.js"></script>
+        <script type="text/javascript" src="/components/angular-resource/angular-resource.js"></script>
+        <script type="text/javascript" src="/components/angular-route/angular-route.js"></script>
+        <script type="text/javascript" src="/components/bootstrap/dist/js/bootstrap.js"></script>
+        <script type="text/javascript" src="/components/angular-sanitize/angular-sanitize.js"></script>
+        <script type="text/javascript" src="/components/showdown/src/showdown.js"></script>
+        <script type="text/javascript" src="/components/angular-markdown-directive/markdown.js"></script>
+        <script type="text/javascript" src="/js/app.js"></script>
+        <script type="text/javascript" src="/js/services/articles.js"></script>
+        <script type="text/javascript" src="/js/controllers/home.js"></script>
+        <script type="text/javascript" src="/js/controllers/articles.js"></script>
+        <script type="text/javascript" src="/js/controllers/article.js"></script>
+    </head>
+    
+    <body>
+        <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand">
+                        SpecialBlog
+                    </a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="/articles">
+                                Articles
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/articles">
+                                Articles
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/articles">
+                                Articles
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div ng-view class="container">
+        </div>
+    </body>
+
+</html>
