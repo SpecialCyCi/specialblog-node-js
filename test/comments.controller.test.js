@@ -17,12 +17,14 @@ describe('Comment API CURD tests', function (argument) {
       content: 'You should use some frameworks like Express'
     });
 
-    article.save();
     comment = new Comment({
       email:   'specialcyci@gmail.com',
       content: 'Hello!'
     });
-    done();
+
+    article.save( function (errors) {
+      done();
+    });
   });
 
   it('should create comment successfully.', function (done) {
