@@ -2,7 +2,8 @@ angular.module('specialBlogApp', [
   'ngRoute',
   'ngResource',
   'ngSanitize',
-  'btford.markdown'
+  'btford.markdown',
+  'filters'
 ])
   .config(function ($routeProvider, $locationProvider) {
       $routeProvider
