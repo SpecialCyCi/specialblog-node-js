@@ -7,8 +7,8 @@ angular.module('specialBlogApp', [
   .config(function ($routeProvider, $locationProvider) {
       $routeProvider
         .when('/', {
-                templateUrl: '/views/index.html',
-                controller: 'HomeCtrl'
+                templateUrl: '/views/articles.html',
+                controller: 'ArticlesCtrl'
               })
         .when('/article/:articleId', {
                 templateUrl: '/views/article.html',
