@@ -55,6 +55,27 @@ nav[role=navigation] ul.nav.navbar-nav.navbar-right > li {
 
 /* Customize the content layout */
 div.container[role=content] {
-  padding-top: 90px;
+  padding-top: 120px;
   background-color: #FBFBFB;
+}
+
+/* Customize the default button */
+.btn-default {
+  font-weight: 300 !important;
+  padding: 10px 40px;
+  border-color: #50BE71;
+  background-color: rgba(0, 0, 0, 0);
+}
+.btn-default:hover {
+  color: white;
+  background-color: #50BE71;
+}
+
+/* Define the pagination style */
+.pagination {
+  width: 100%;
+  text-align: center;
+}
+.pagination > a {
+  margin: 0 5px;
 }
