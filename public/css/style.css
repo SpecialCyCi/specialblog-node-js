@@ -59,6 +59,38 @@ div.container[role=content] {
   background-color: #FBFBFB;
 }
 
+/* Customize the footer layout */
+footer {
+  height: 80px;
+  padding: 20px 0;
+  display: flex !important;
+}
+footer a.navbar-brand {
+  color: white;
+  background: #6B807C !important;
+  width: 40px !important;
+  height: 40px !important;
+  text-align: center;
+  border-radius: 4px;
+  font-size: 25px;
+  float: none;
+  padding: 10px 10px;
+}
+footer a.navbar-brand:hover {
+  border-radius: 30px;
+}
+footer ul.nav.navbar-nav {
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 50%;
+}
+footer ul.nav.navbar-nav > li {
+  float: right;
+}
+footer ul.nav.navbar-nav.navbar-right > li {
+  float: left;
+}
+
 /* Customize the default button */
 .btn-default {
   font-weight: 300 !important;
