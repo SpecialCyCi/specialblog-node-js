@@ -87,6 +87,14 @@ footer ul.nav.navbar-nav {
 footer ul.nav.navbar-nav > li {
   float: right;
 }
+footer ul.nav.navbar-nav > li > a {
+  padding-top: 12px;
+  color: #6B807C;
+}
+footer ul.nav.navbar-nav > li > a:hover {
+  color: white;
+  background: rgba(0, 0, 0, 0);
+}
 footer ul.nav.navbar-nav.navbar-right > li {
   float: left;
 }
