@@ -119,3 +119,10 @@ footer ul.nav.navbar-nav.navbar-right > li {
 .pagination > a {
   margin: 0 5px;
 }
+
+/* Article reading page stye */
+.article-title {
+  padding-top: 10px;
+  text-align: center;
+  font-size: 35px;
+}
