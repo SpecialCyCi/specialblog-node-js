@@ -59,5 +59,3 @@ exports.articleByID = function(req, res, next, id) {
     next();
   });
 };
-
-
