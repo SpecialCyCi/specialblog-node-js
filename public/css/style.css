@@ -121,8 +121,20 @@ footer ul.nav.navbar-nav.navbar-right > li {
 }
 
 /* Article reading page stye */
-.article-title {
+.article-container {
   padding-top: 10px;
+  padding-bottom: 60px;
+  margin-left: 120px;
+  margin-right: 120px;
+}
+.article-title {
   text-align: center;
   font-size: 35px;
+}
+.article-content {
+  color: #788381;
+  line-height: 1.5em;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
 }
