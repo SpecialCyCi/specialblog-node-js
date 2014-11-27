@@ -3,7 +3,8 @@ angular.module('specialBlogApp', [
   'ngResource',
   'ngSanitize',
   'btford.markdown',
-  'filters'
+  'filters',
+  'angular-loading-bar'
 ])
   .config(function ($routeProvider, $locationProvider) {
       $routeProvider
