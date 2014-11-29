@@ -7,6 +7,7 @@
             <a ng-href="/article/{{article._id}}">
             {{article.title}}
             </a>
+            {{article.created_at}}
         </h4>
         <div btf-markdown="article.content | truncate:200 | strip_tags"></div>
     </div>
