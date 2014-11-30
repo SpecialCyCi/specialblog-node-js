@@ -12,6 +12,7 @@
     "angular-route": "~1.2.24",
     "angular-resource": "~1.2.24",
     "angular-markdown-directive": "0.3.0",
-    "angular-loading-bar": "0.6.0"
+    "angular-loading-bar": "0.6.0",
+    "angular-moment": "~0.8.2"
   }
 }

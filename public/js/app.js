@@ -4,7 +4,8 @@ angular.module('specialBlogApp', [
   'ngSanitize',
   'btford.markdown',
   'filters',
-  'angular-loading-bar'
+  'angular-loading-bar',
+  'angularMoment'
 ])
   .config(function ($routeProvider, $locationProvider) {
       $routeProvider

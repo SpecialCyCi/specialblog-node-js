@@ -18,8 +18,9 @@ var ArticleSchema = new Schema({
 ArticleSchema.virtual('date')
   .get(function(){
     return this._id.getTimestamp();
-  })
-  .pre('save', function(next){
+  });
+
+ArticleSchema.pre('save', function(next){
     now = new Date();
     this.updated_at = now;
     if ( !this.created_at ) {
