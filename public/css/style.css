@@ -138,3 +138,7 @@ footer ul.nav.navbar-nav.navbar-right > li {
   font-style: normal;
   font-weight: 400;
 }
+.article-time {
+  float: right;
+  clear: both;
+}
