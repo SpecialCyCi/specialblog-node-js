@@ -29,7 +29,6 @@ angular.module('filters', []).
         };
     });
 
-
 /**
  * Usage
  *
@@ -37,7 +36,7 @@ angular.module('filters', []).
  *
  * {{myText|Truncate}}
  * {{myText|Truncate:5}}
- * {{myText|Truncate:25:" ->"}}
+ * {{myText|Truncate:25:"->"}}
  * Output
  * "This is..."
  * "Th..."

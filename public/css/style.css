@@ -57,6 +57,8 @@ nav[role=navigation] ul.nav.navbar-nav.navbar-right > li {
 div.container[role=content] {
   padding-top: 120px;
   background-color: #FBFBFB;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 /* Customize the footer layout */
@@ -118,6 +120,21 @@ footer ul.nav.navbar-nav.navbar-right > li {
 }
 .pagination > a {
   margin: 0 5px;
+}
+
+/* Article list page style. */
+.articles-title {
+  color: #555555 !important;
+  display: block;
+  margin-bottom: 6px;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 40px;
+}
+.articles-summary {
+  font-size: 18px;
+  font-weight: 100;
+  line-height: 30px;
 }
 
 /* Article reading page stye */

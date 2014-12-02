@@ -1,15 +1,12 @@
-<div class="media" ng-repeat="article in articles">
-    <a class="media-left" ng-href="">
-        <span class="glyphicon glyphicon-tree-deciduous"></span>
-    </a>
-    <div class="media-body">
-        <h4 class="media-heading">
-            <a ng-href="/article/{{article._id}}">
-            {{article.title}}
-            </a>
-            <span am-time-ago="article.created_at"></span>
-        </h4>
-        <div btf-markdown="article.content | truncate:200 | strip_tags"></div>
+<div ng-repeat="article in articles">
+    <div class="articles-item">
+        <a ng-href="/article/{{article._id}}" class="articles-title">
+        {{article.title}}
+        </a>
+        <div class="articles-summary">
+          {{ article.content | strip_tags | truncate: 200 }}
+        </div>
+        <span am-time-ago="article.created_at"></span>
     </div>
     <hr/>
 </div>
